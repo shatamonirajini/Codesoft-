@@ -1,0 +1,90 @@
+#contact book
+contacts={}
+def add_contacts(name,phone_number,email):
+    contacts[name]={'phone_number':phone_number,'email':email}
+    print("contact{} added successful")
+
+
+def view_contacts():
+    if contacts:
+        print("All contacts:")
+        print("Name:{}\n,phone_number:{}\n,email:{}")
+    else:
+        print("No contacts found")
+
+
+def search_contacts(name):
+    if name in contacts:
+        print("contact is found")
+        print("Name:{}\n,phone_number:{}\n,email:{}".format(name,contacts[name]['phone_number'],contacts[name]['email']))
+    else:
+        print("No contacts found")
+
+
+def delete_contacts(name):
+    if name in contacts:
+        del contacts[name]
+        print(f"contacts{name}deleted successfully!")
+    else:
+        print("No contacts found")
+
+
+def menu():
+        while True :     
+            print("---------contact book meanu-------\n")
+            print("1.Add contacts")
+            print("2.View all contacts")
+            print("3.Search contact")
+            print("4.Delete contact")
+            print("5.Exit")
+
+
+            choice=input("Enter your choice(1/2/3/4/5):")
+
+
+            if choice=='1':
+
+                name=input("Enter contact name:")
+
+                phone_number=("Enter contact phone_number:")
+
+                email=("Enter contact email:")
+
+                add_contacts(name,phone_number,email)
+
+
+            elif choice=='2':
+
+                view_contacts()
+
+
+            elif choice=='3':
+              
+              name=input("Enter the name of the contact to search:")
+
+              search_contacts(name)
+
+
+            elif choice=='4':
+              
+              name=input("Enter the name of the contact to delete:")
+
+              delete_contacts(name)
+
+
+            elif choice=='5':
+              
+              print("Exist contact book")
+
+
+            else:
+              
+              print("invald  choice,please try again")
+
+
+if __name__=="__main__":
+    
+    menu()            
+
+
+
